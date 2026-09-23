@@ -292,17 +292,33 @@
       overflow-y: auto;
     }
 
-    .player-wrap {
+    /* .player-wrap {
       position: relative;
       z-index: 20;
       width: 560px;
       max-width: calc(100vw - 32px);
       padding-bottom: calc(var(--safe-b) + 4px);
+    } */
+    .player-wrap {
+      position: relative;
+      z-index: 20;
+      width: min(560px, calc(100vw - 32px));
+      max-width: 100%;
+      padding-bottom: calc(var(--safe-b) + 4px);
     }
 
-    .player-card {
+
+    /* .player-card {
       width: 100%;
       max-width: 560px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-sizing: border-box;
+      transition: transform .25s ease, box-shadow .25s ease;
+    } */
+    .player-card {
+      width: 100%;
+      max-width: 100%;
       border-radius: 24px;
       overflow: hidden;
       box-sizing: border-box;
@@ -330,7 +346,7 @@
       font-weight: 700;
     }
 
-    .spotify-frame-wrap {
+    /* .spotify-frame-wrap {
       width: 100%;
       height: 352px;
 
@@ -340,9 +356,18 @@
       overflow: hidden;
 
       box-sizing: border-box;
+    } */
+    .spotify-frame-wrap {
+      width: 100%;
+      height: 352px;
+      margin: 10px 0 0;
+      border-radius: 0;
+      overflow: hidden;
+      box-sizing: border-box;
     }
 
-    .spotify-frame-wrap iframe {
+
+    /* .spotify-frame-wrap iframe {
       display: block;
 
       width: 100%;
@@ -351,6 +376,14 @@
       min-height: 352px;
       max-height: 352px;
 
+      border: 0;
+    } */
+    .spotify-frame-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 352px !important;
+      min-height: 0;
+      max-height: none;
       border: 0;
     }
 
@@ -591,6 +624,32 @@
 
     .site-footer a:hover {
       color: var(--ink-cream);
+    }
+
+    /* ---------- mobile playlist ---------- */
+
+    @media (max-width: 600px) {
+      .player-wrap {
+        width: calc(100vw - 24px);
+        max-width: 100%;
+      }
+
+      .player-card {
+        border-radius: 18px;
+      }
+
+      .player-head {
+        padding: 12px 14px;
+        gap: 8px;
+      }
+
+      .spotify-frame-wrap {
+        height: 300px;
+      }
+
+      .spotify-frame-wrap iframe {
+        height: 300px !important;
+      }
     }
   </style>
 </head>
